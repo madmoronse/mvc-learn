@@ -5,8 +5,8 @@ Class Controller_Index Extends Controller
 	{
 
 		$this->data['title'] = 'Главная страница';
-		$home = $this->model('home');
-		$this->data['students'] = $home->getData();
+	 	$this->model('home');
+		$this->data['students'] = $this->model_home->getData();
 
 
 		$this->render('common/home', $this->data);

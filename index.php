@@ -8,8 +8,7 @@ $db->exec('SET CHARACTER SET utf8');
 
 $router = new Router($registry);
 $registry->set('router', $router);
-$name = 'Sergo';
-$registry->set('name', $name);
+
 
 
 $router->setPath(SITE_PATH . 'controllers');
