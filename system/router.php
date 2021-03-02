@@ -3,12 +3,13 @@
 
 Class Router {
 
+	private $registry;
 	private $path;
 	private $args = array();
 
-	function __construct() {
-
-	}
+	function __construct($registry) {
+        $this->registry = $registry;
+    }
 
 	// задаем путь до папки с контроллерами
 	function setPath($path) {
@@ -82,7 +83,7 @@ Class Router {
 
         // Создаём экземпляр контроллера
         $class = 'Controller_' . $controller;
-        $controller = new $class();
+        $controller = new $class($this->registry);
 
         // Если экшен не существует - 404
         if (is_callable(array($controller, $action)) == false) {

@@ -1,17 +1,26 @@
 <?php
-final class Registry {
-	private $data = array();
-
-	public function get($key) {
-		return (isset($this->data[$key]) ? $this->data[$key] : NULL);
-	}
-
-	public function set($key, $value) {
-		$this->data[$key] = $value;
-	}
-
-	public function has($key) {
-    	return isset($this->data[$key]);
-  	}
+Class Registry {
+    private $vars = array();
+     
+    // запись данных
+     function set($key, $var) {
+        if (isset($this->vars[$key]) == true) {
+            throw new Exception('Unable to set var `' . $key . '`. Already set.');
+        }
+        $this->vars[$key] = $var;
+        return true;
+    }
+ 
+    // получение данных
+    function get($key) {
+        if (isset($this->vars[$key]) == false) {
+            return null;
+        }
+        return $this->vars[$key];
+    }
+ 
+    // удаление данных
+    function remove($var) {
+        unset($this->vars[$key]);
+    }
 }
-?>
