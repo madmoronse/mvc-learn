@@ -4,6 +4,7 @@ class Controller
 	public $model;
 	public $view;
 	protected $data = array();
+	protected $children = array();
 
 	protected $registry;
 	
@@ -28,19 +29,21 @@ class Controller
 
 		    $class_name = ucfirst('model_') . ucfirst($model);
 
-		    $this->registry->set('model_' . $model, new $class_name);
+		    $this->registry->set('model_' . $model, new $class_name($registry));
 	    } else {
 			trigger_error('Error: Could not load model ' . $model . '!');
 			exit();					
 		}
 	}
 	
-	public function render($view, $data = [], $child = [])
+	public function render($view, $data = [])
 	{
-			ob_start();
 			extract($data);
+
 			include SITE_PATH . 'views/' . $view . '.php.';
+
 			$buffer = ob_get_contents();
+
 		    ob_end_clean();
 
 		    echo $buffer;
