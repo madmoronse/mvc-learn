@@ -13,8 +13,7 @@ Class Controller_Index Extends Controller
 			'footer'
 		);
 
-		
-
+		echo $this->data['header'];
 		$this->render('common/home', $this->data);
 	}
 }

@@ -7,11 +7,11 @@ class Controller
 	protected $children = array();
 
 	protected $registry;
-	
+
 	public function __construct($registry) {
 		$this->registry = $registry;
 	}
-	
+
 	public function __get($key) {
 		return $this->registry->get($key);
 	}
@@ -32,20 +32,37 @@ class Controller
 		    $this->registry->set('model_' . $model, new $class_name($registry));
 	    } else {
 			trigger_error('Error: Could not load model ' . $model . '!');
-			exit();					
+			exit();
 		}
 	}
-	
+
 	public function render($view, $data = [])
 	{
-			extract($data);
+		foreach ($this->children as $child) {
+			ob_start();
+			$this->getChild($child);
+			$data[$child] = ob_get_contents();
+			ob_end_clean();
+		}
 
-			include SITE_PATH . 'views/' . $view . '.php.';
+		extract($data);
 
-			$buffer = ob_get_contents();
+		include SITE_PATH . 'views/' . $view . '.php.';
+	}
 
-		    ob_end_clean();
+	private function getChild($child)
+	{
+		$path = SITE_PATH . DIR_CONTROLLER . $child . '.php';
+		$class = 'Controller_' . ucfirst($child);
 
-		    echo $buffer;
+
+		if (file_exists($path)) {
+			require_once $path;
+		}
+
+
+		$controller = new $class($this->registry);
+
+		return $controller->index();
 	}
 }
