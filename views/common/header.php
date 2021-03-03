@@ -2,34 +2,23 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/style.css">
     <title> <?php echo $title; ?> </title>
 </head>
 <body>
-<div id="header">
-    <div class="top">
-        <div class="social">
-            <a href="#"><img src="image/icons/instagram.png" alt="инстаграм"></a>
-            <a href="#"><img src="image/icons/whatsapp.png" alt="whatsapp"></a>
-            <a href="#"><img src="image/icons/telegram.png" alt="telegram"></a>
-        </div>
-        <div class="logo">
-            <img src="image/logo.png" alt="логотип">
-        </div>
-        <div class="callback">
-            <a href="#"><button class="button">Заказать звонок</button></a>
-        </div>
-    </div>
-    <div class="menu">
-        <ul>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+        <ul class="navbar-nav">
             <?php foreach ($category as $item) {?>
-                <a href="#"> <li> <?php echo $item['title']; ?> </li></a>
+                <li class="nav-item"> 
+                  <a href="#" class="nav-link">  <?php echo $item['title']; ?> </a>
+                </li>
             <?php }?>
-            <li>Отзывы</li>
-            <li>Контакты</li>
         </ul>
-    </div>
-</div>
+    </nav>
+
+    
+
     
