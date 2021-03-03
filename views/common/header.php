@@ -9,15 +9,7 @@
     <title> <?php echo $title; ?> </title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
-        <ul class="navbar-nav">
-            <?php foreach ($category as $item) {?>
-                <li class="nav-item"> 
-                  <a href="#" class="nav-link">  <?php echo $item['title']; ?> </a>
-                </li>
-            <?php }?>
-        </ul>
-    </nav>
+    <h1>Шапка!</h1>
 
     
 

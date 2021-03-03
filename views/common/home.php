@@ -1,9 +1,5 @@
 <?php echo $header; ?>
 
-<div id="wrapper">
-    <div class="intro-display">
-        
-    </div>
-</div>
+<h2>Главная страница</h2>
 
 <?php echo $footer; ?>
