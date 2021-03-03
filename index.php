@@ -9,7 +9,9 @@ $db->exec('SET CHARACTER SET utf8');
 $router = new Router($registry);
 $registry->set('router', $router);
 
+$db = new DB(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
+$registry->set('db', $db);
 
 $router->setPath(SITE_PATH . 'controllers');
 $router->start();
