@@ -29,7 +29,7 @@ class Controller
 
 		    $class_name = ucfirst('model_') . ucfirst($model);
 
-		    $this->registry->set('model_' . $model, new $class_name($registry));
+		    $this->registry->set('model_' . $model, new $class_name($this->registry));
 	    } else {
 			trigger_error('Error: Could not load model ' . $model . '!');
 			exit();

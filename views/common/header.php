@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,4 +8,18 @@
     <title> <?php echo $title; ?> </title>
 </head>
 <body>
+<div id="header">
+    <div class="top">
+        <div class="social"></div>
+        <div class="logo"></div>
+        <div class="callback"></div>
+    </div>
+    <div class="menu">
+        <ul>
+            <?php foreach ($category as $item) {?>
+                <a href="#"> <li> <?php echo $item['title']; ?> </li></a>
+            <?php }?>
+        </ul>
+    </div>
+</div>
     

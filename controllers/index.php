@@ -6,7 +6,6 @@ Class Controller_Index Extends Controller
 
 		$this->data['title'] = 'Главная страница';
 	 	$this->model('home');
-		$this->data['students'] = $this->model_home->getData();
 
 		$this->children = array (
 			'header',

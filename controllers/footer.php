@@ -1,8 +1,8 @@
 <?php
 Class Controller_Footer Extends Controller
 {
-	public function index()
+	public function index($data_child)
 	{
-		$this->render('common/footer', $this->data);
+		$this->render('common/footer', $data_child);
 	}
 }
