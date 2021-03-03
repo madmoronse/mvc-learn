@@ -63,6 +63,6 @@ class Controller
 
 		$controller = new $class($this->registry);
 
-		return $controller->index();
+		return $controller->index($this->data);
 	}
 }

@@ -1,8 +1,8 @@
 <?php
 Class Controller_Header Extends Controller
 {
-	public function index()
+	public function index($data_child)
 	{
-		$this->render('common/header', $this->data);
+		$this->render('common/header', $data_child);
 	}
 }
