@@ -1,5 +1,7 @@
 <?php echo $header; ?>
 
-<h2>Главная страница</h2>
+<div class="intro">
+	
+</div>
 
 <?php echo $footer; ?>
