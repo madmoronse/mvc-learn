@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:800,900");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 body {
-  font-family: Alegreya Sans, sans-serif;
+  font-family: Montserrat;
+  height: 2999px;
 }
 * {
    -moz-box-sizing: border-box; /* Для Firefox */  
@@ -29,6 +31,16 @@ button {
     border: none;
     color: #fff;
     cursor: pointer;
+}
+
+.social {
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+}
+.social img {
+  width: 32px;
+  height: 32px;
 }
 
 /* МЕНЮ */

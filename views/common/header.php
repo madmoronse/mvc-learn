@@ -21,7 +21,7 @@
 <div class="head">
 	<div class="header">
 		<div class="logo">
-			<h2>Пекарня!</h2>
+			<img src="../../image/logo.png">
 		</div>
 		<div class="menu">
 			<ul>
@@ -40,9 +40,14 @@
 		</div>
 		<div class="cart">
 			<img src="../../image/icons/basket_96252.png" width="18" height="18"> 
-			0
+			<span>0</span>
 		</div>
 	</div>
+</div>
+<div class="social">
+	<img src="../../image/icons/telegram.png">
+	<img src="../../image/icons/instagram.png">
+	<img src="../../image/icons/whatsapp.png">
 </div>
 
 
