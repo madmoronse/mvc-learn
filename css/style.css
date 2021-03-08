@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 body {
+  scroll-behavior: smooth;
   font-family: Montserrat;
-  height: 2999px;
 }
 * {
    -moz-box-sizing: border-box; /* Для Firefox */  
@@ -301,7 +301,6 @@ nav.top-right {
 /* ШАПКА */
 .head {
   width: 100%;
-  max-width: 1220px;
   margin: 0 auto;
   position: relative;
 }
@@ -312,8 +311,7 @@ nav.top-right {
   position: fixed;
   background-color: #fff;
   width: 100%;
-  max-width: 1220px;
-  padding-top: 20px;
+  padding: 15px 20px 15px 20px;
 }
 .header div {
 }
@@ -334,12 +332,21 @@ nav.top-right {
 .menu a {
   text-decoration: none;
   color: #000;
+  font-size: 12px;
 }
 .menu li {  
   
 }
+.menu a:hover {
+  border-bottom: 1px solid black;
+  
+}
 .cart {
   width: 10%;
+  text-align: center;
+}
+.cart span {
+  font-size: 12px;
 }
 
 /* ИНТРО */
@@ -380,4 +387,90 @@ nav.top-right {
     font-size: 24px;
     color: #000;
     letter-spacing: 1px;
+}
+
+/* БЛОК С КАТЕГОРИЯМИ */
+.section {
+  display: flex;
+  align-items: center;
+  align-content: center; 
+  justify-content: center; 
+  overflow: auto; 
+}
+.category {
+  width: 100%;
+  height: 100vh;
+  background: url(../image/intro/1.jpg) no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+ 
+}
+.section-2 {
+  width: 100%;
+  height: 100vh;
+  background: url(../image/intro/2.jpg) no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+.section-3 {
+  width: 100%;
+  height: 100vh;
+  background: url(../image/intro/3.jpg) no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+.item {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 40px 0 40px;
+  background-color: #fff;
+}
+.category-it {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  text-align: center;
+  align-items: center;
+  color: #fff;
+  height: 250px;
+}
+.it-1 {
+  background: url('../image/category/1.jpg'), rgba(0,0,0, 0.7);
+  background-blend-mode: color;
+  background-size: cover;
+}
+.it-2 {
+  background: url('../image/category/2.jpg'), rgba(0,0,0, 0.7);
+  background-blend-mode: color;
+  background-size: cover;
+}
+.it-3 {
+  background: url('../image/category/3.jpg'), rgba(0,0,0, 0.7);
+  background-blend-mode: color;
+  background-size: cover;
+}
+.it-4 {
+  background: url('../image/category/4.jpg'), rgba(0,0,0, 0.7);
+  background-blend-mode: color;
+  background-size: cover;
+}
+.it-5 {
+  background: url('../image/category/5.jpg'), rgba(0,0,0, 0.7);
+  background-blend-mode: color;
+  background-size: cover;
+}
+.it-6 {
+  background: url('../image/category/6.jpg'), rgba(0,0,0, 0.7);
+  background-blend-mode: color;
+  background-size: cover;
 }

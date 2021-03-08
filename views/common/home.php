@@ -18,15 +18,22 @@
         </div>
 	</div>
 </div>
-
-<div class="category">
-	<div class="content">
-		<div>Категория 1</div>
-		<div>Категория 2</div>
-		<div>Категория 3</div>
-		<div>Категория 4</div>
-		<div>Категория 5</div>
-		<div>Категория 6</div>
-	</div>
+<div class="wrapper">
+    <div class="category section">
+    	<div class="item">
+            <div class="category-it it-1"><h1>Торты</h1></div>
+            <div class="category-it it-2"><h1>Капкейки</h1></div>
+            <div class="category-it it-3"><h1>Кейк-попсы</h1></div>
+            <div class="category-it it-4"><h1>Эскимо кейк-попсы</h1></div>
+            <div class="category-it it-5"><h1>Леденцы</h1></div>
+            <div class="category-it it-6"><h1>Меренга</h1></div>
+        </div>
+    </div>
+    <div class="section-2 section">
+        
+    </div>
+    <div class="section-3 section">
+        
+    </div>
 </div>
 <?php echo $footer; ?>

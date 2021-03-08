@@ -19,6 +19,7 @@
 		</a>
 	</nav>
 <div class="head">
+	<div class="nav">
 	<div class="header">
 		<div class="logo">
 			<img src="../../image/logo.png">
@@ -43,6 +44,7 @@
 			<span>0</span>
 		</div>
 	</div>
+</div>
 </div>
 <div class="social">
 	<img src="../../image/icons/telegram.png">
