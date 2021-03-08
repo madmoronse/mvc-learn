@@ -9,18 +9,40 @@
     <title> <?php echo $title; ?> </title>
 </head>
 <body>
-	<nav class="top-right open">
+	<nav class="top-right open" style="display: none;">
 		<?php foreach ($category as $value): ?>	
 		  <a class="disc <?php echo 'l' . $value['id']; ?>">
 		    <div><?php echo $value['title']; ?></div>
 		  </a>
   		<?php endforeach ?>
-  <a class="disc l7 toggle">
-    
-  </a>
-</nav>
-    
+		<a class="disc l7 toggle">   
+		</a>
+	</nav>
+<div class="head">
+	<div class="header">
+		<div class="logo">
+			<h2>Пекарня!</h2>
+		</div>
+		<div class="menu">
+			<ul>
+				<?php foreach ($category as $value): ?>	
+					<a href="#">
+						<li><?php echo $value['title']; ?></li>
+					</a>
+				<?php endforeach ?>
+					<a href="#">
+						<li>Отзывы</li>
+					</a>
+					<a href="#">
+						<li>Контакты</li>
+					</a>
+			</ul>
+		</div>
+		<div class="cart">
+			<img src="../../image/icons/basket_96252.png" width="18" height="18"> 
+			0
+		</div>
+	</div>
+</div>
 
-    
 
-    
