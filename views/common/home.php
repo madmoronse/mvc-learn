@@ -4,10 +4,10 @@
 		 <div class="left-content">
             <div class="intro-content">
                     <div class="intro-text">
-                        <h1>Торт - это всегда праздник!</h1>
+                        <h1>Торт - это всегда праздник!</h1><br>
                         <p>
                             Торт всегда был одним из самых наилучших лакомств для любителей десертов.
-                        </p>
+                        </p><br>
                         <div class="button-block">
                             <a href="#form">
                                 <button class="button btn-1">Посмотреть каталог</button>
@@ -30,10 +30,21 @@
         </div>
     </div>
     <div class="section-2 section">
-        
+
     </div>
     <div class="section-3 section">
-        
+
     </div>
+</div>
+<div class="scroll-up scroll-up--active">
+	<svg class="scroll-up__svg" viewBox="-2 -2 52 52">
+		<path
+			class="scroll-up__svg-path"
+			d="
+			M24, 0
+			a24,24 0 0, 1 0, 48
+			a24,24 0 0, 1 0, -48"
+		/>
+	</svg>
 </div>
 <?php echo $footer; ?>

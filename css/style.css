@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:800,900");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+html {
+	scroll-behavior: smooth;
+}
 body {
-  scroll-behavior: smooth;
-  font-family: Montserrat;
+  	font-family: Montserrat;
 }
 * {
-   -moz-box-sizing: border-box; /* Для Firefox */  
+   -moz-box-sizing: border-box; /* Для Firefox */
     box-sizing: border-box; /* Ширина блока с полями */
 }
 
@@ -35,12 +37,56 @@ button {
 
 .social {
   position: fixed;
-  right: 20px;
-  bottom: 0;
+  left: 20px;
+  bottom: 10px;
 }
 .social img {
   width: 32px;
   height: 32px;
+}
+.scroll-up {
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+	z-index: 1000;
+	width: 42px;
+	height: 42px;
+	color: #dcdcdc;
+	cursor: pointer;
+	visibility: hidden;
+	border-radius: 50px;
+	box-shadow: inset 0 0 0 4px #dcdcdc;
+	opacity: 0;
+	transition: 0.2s;
+	transform: translateY(25px);
+}
+.scroll-up::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	font-size: 26px;
+	content: "↑";
+}
+.scroll-up:hover {
+	color: orange;
+}
+.scroll-up--active {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(0);
+}
+.scroll-up__svg {}
+.scroll-up__svg-path {
+	box-sizing: border-box;
+	fill: none;
+	stroke: orange;
+	stroke-width: 4px;
+	transition: 0.2s;
 }
 
 /* МЕНЮ */
@@ -299,7 +345,7 @@ nav.top-right {
 }
 
 /* ШАПКА */
-.head {
+#head {
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -312,6 +358,7 @@ nav.top-right {
   background-color: #fff;
   width: 100%;
   padding: 15px 20px 15px 20px;
+  height: 50px;
 }
 .header div {
 }
@@ -334,12 +381,12 @@ nav.top-right {
   color: #000;
   font-size: 12px;
 }
-.menu li {  
-  
+.menu li {
+
 }
 .menu a:hover {
   border-bottom: 1px solid black;
-  
+
 }
 .cart {
   width: 10%;
@@ -393,9 +440,9 @@ nav.top-right {
 .section {
   display: flex;
   align-items: center;
-  align-content: center; 
-  justify-content: center; 
-  overflow: auto; 
+  align-content: center;
+  justify-content: center;
+  overflow: auto;
 }
 .category {
   width: 100%;
@@ -427,7 +474,6 @@ nav.top-right {
 .item {
   width: 100%;
   max-width: 1220px;
-  height: 70vh;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -443,6 +489,7 @@ nav.top-right {
   align-items: center;
   color: #fff;
   height: 250px;
+  margin-top: 15px;
 }
 .it-1 {
   background: url('../image/category/1.jpg'), rgba(0,0,0, 0.7);
