@@ -405,7 +405,6 @@ nav.top-right {
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
- 
 }
 .section-2 {
   width: 100%;
@@ -427,12 +426,13 @@ nav.top-right {
 }
 .item {
   width: 100%;
-  height: 600px;
+  max-width: 1220px;
+  height: 70vh;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  padding: 0 40px 0 40px;
+  padding: 40px;
   background-color: #fff;
 }
 .category-it {
