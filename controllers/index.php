@@ -5,7 +5,9 @@ Class Controller_Index Extends Controller
 	{
 
 		$this->data['title'] = 'Главная страница';
-	 	$this->model('home');
+		
+	 	$this->load->model('products');
+		$this->data['categories'] = $this->model_products->getCategory();
 
 		$this->children = array (
 			'header',

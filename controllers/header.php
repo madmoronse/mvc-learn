@@ -5,7 +5,7 @@ Class Controller_Header Extends Controller
 	public function index($data_child)
 	{
 		$this->data_child = $data_child;
-		$this->model('products');
+		$this->load->model('products');
 		$this->data_child['category'] = $this->model_products->getCategory();
 		
 		$this->render('common/header', $this->data_child);

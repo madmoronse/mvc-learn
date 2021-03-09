@@ -21,12 +21,9 @@
 <div class="wrapper">
     <div class="category section">
     	<div class="item">
-            <div class="category-it it-1"><h1>Торты</h1></div>
-            <div class="category-it it-2"><h1>Капкейки</h1></div>
-            <div class="category-it it-3"><h1>Кейк-попсы</h1></div>
-            <div class="category-it it-4"><h1>Эскимо кейк-попсы</h1></div>
-            <div class="category-it it-5"><h1>Леденцы</h1></div>
-            <div class="category-it it-6"><h1>Меренга</h1></div>
+            <?php foreach ($categories as $value): ?>
+                <div class="category-it <?php echo 'it-' . $value['id']; ?>"><h1><?php echo $value['title']; ?></h1></div>
+            <?php endforeach ?>
         </div>
     </div>
     <div class="section-2 section">
