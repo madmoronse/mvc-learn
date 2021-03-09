@@ -22,7 +22,7 @@
     <div class="category section">
     	<div class="item">
             <?php foreach ($categories as $value): ?>
-                <div class="category-it <?php echo 'it-' . $value['id']; ?>"><h1><?php echo $value['title']; ?></h1></div>
+                <a href="#" class="category-it-link"><div class="category-it <?php echo 'it-' . $value['id']; ?>"><h1><?php echo $value['title']; ?></h1></div></a>
             <?php endforeach ?>
         </div>
     </div>

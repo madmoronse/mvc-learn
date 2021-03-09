@@ -481,7 +481,7 @@ nav.top-right {
   padding: 40px;
   background-color: #fff;
 }
-.category-it {
+.category-it-link {
   display: flex;
   justify-content: center;
   width: 30%;
@@ -489,6 +489,17 @@ nav.top-right {
   align-items: center;
   color: #fff;
   height: 250px;
+  margin-top: 15px; 
+  text-decoration: none;
+}
+.category-it {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  color: #fff;
+  height: 100%;
   margin-top: 15px;
 }
 .it-1 {
