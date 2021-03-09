@@ -10,14 +10,17 @@
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
+
 }
 body {
-  	font-family: Montserrat;
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat;
 }
 * {
-   -moz-box-sizing: border-box; /* Для Firefox */
-    box-sizing: border-box; /* Ширина блока с полями */
+  -moz-box-sizing: border-box; /* Для Firefox */
+  box-sizing: border-box; /* Ширина блока с полями */
 }
 
 /* КНОПКА */
@@ -388,6 +391,7 @@ nav.top-right {
   text-decoration: none;
   color: #000;
   font-size: 12px;
+  border-bottom: 1px solid transparent;
 }
 .menu li {
 
@@ -440,10 +444,10 @@ nav.top-right {
     font-family: "MazzardH", sans-serif;
 }
 .intro-text p {
-    margin: 0;
-    font-size: 24px;
-    color: #000;
-    letter-spacing: 1px;
+  margin: 0;
+  font-size: 18px;
+  color: #000;
+  max-width: 400px;
 }
 
 /* БЛОК С КАТЕГОРИЯМИ */
