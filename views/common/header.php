@@ -47,7 +47,7 @@
 	</div>
 </div>
 </div>
-<div class="social">
+<div class="social" style="display: none;">
 	<img src="../../image/icons/telegram.png">
 	<img src="../../image/icons/instagram.png">
 	<img src="../../image/icons/whatsapp.png">

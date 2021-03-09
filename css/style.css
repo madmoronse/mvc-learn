@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:800,900");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+@font-face {
+  font-family: 'MazzardH';
+  src: url("../fonts/MazzardH-SemiBold.woff");
+  src: url("../fonts/MazzardH-SemiBold.woff") format("embedded-opentype"), url("../fonts/MazzardH-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal; 
+}
+
 html {
 	scroll-behavior: smooth;
 }
@@ -355,7 +363,7 @@ nav.top-right {
   justify-content: space-between;
   align-items:center;
   position: fixed;
-  background-color: #fff;
+  background-color: #f2f2f2;
   width: 100%;
   padding: 15px 20px 15px 20px;
   height: 50px;
@@ -406,6 +414,7 @@ nav.top-right {
   display: flex;
   justify-content: start;
   align-items: center;
+  /*background-color: #f2f2f2;*/
 }
 .left-content {
     display: flex;
@@ -426,8 +435,9 @@ nav.top-right {
 .intro-text h1{
     margin: 0;
     color: #000;
-    font-size: 36px;
+    font-size: 56px;
     text-transform: none;
+    font-family: "MazzardH", sans-serif;
 }
 .intro-text p {
     margin: 0;
@@ -447,7 +457,7 @@ nav.top-right {
 .category {
   width: 100%;
   height: 100vh;
-  background: url(../image/intro/1.jpg) no-repeat;
+  /*background: url(../image/intro/1.jpg) no-repeat;*/
   background-attachment: fixed;
   -webkit-background-size: cover;
   background-size: cover;
@@ -478,8 +488,12 @@ nav.top-right {
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  padding: 40px;
+  padding: 10px 40px 40px 40px;
   background-color: #fff;
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 8px 1px rgba(34, 60, 80, 0.2);
+  border-radius: 10px;
 }
 .category-it-link {
   display: flex;
@@ -501,6 +515,10 @@ nav.top-right {
   color: #fff;
   height: 100%;
   margin-top: 15px;
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 8px 1px rgba(34, 60, 80, 0.2);
+  border-radius: 10px;
 }
 .it-1 {
   background: url('../image/category/1.jpg'), rgba(0,0,0, 0.7);
