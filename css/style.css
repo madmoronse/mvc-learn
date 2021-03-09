@@ -51,7 +51,7 @@ button {
 	z-index: 1000;
 	width: 42px;
 	height: 42px;
-	color: #dcdcdc;
+	color: #fff;
 	cursor: pointer;
 	visibility: hidden;
 	border-radius: 50px;
@@ -83,7 +83,7 @@ button {
 .scroll-up__svg {}
 .scroll-up__svg-path {
 	box-sizing: border-box;
-	fill: none;
+	fill: black;
 	stroke: orange;
 	stroke-width: 4px;
 	transition: 0.2s;

@@ -36,7 +36,7 @@
 
     </div>
 </div>
-<div class="scroll-up scroll-up--active">
+<div class="scroll-up">
 	<svg class="scroll-up__svg" viewBox="-2 -2 52 52">
 		<path
 			class="scroll-up__svg-path"
