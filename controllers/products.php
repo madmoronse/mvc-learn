@@ -1,7 +1,7 @@
-<?php 
+<?php
 Class Controller_Products Extends Controller
 {
-	public function getList($args) 
+	public function getList($args)
 	{
 		$this->load->model('products');
 		$category = $this->model_products->getCategory($args[0]);
@@ -25,6 +25,19 @@ Class Controller_Products Extends Controller
 			'footer'
 		);
 
-		$this->render('products/products_list', $this->data);	
+		$this->render('products/products_list', $this->data);
+	}
+	public function getProduct($args)
+	{
+		$this->load->model('products');
+		$this->data['product'] = $this->model_products->getProduct($args[0]);
+		$this->data['title'] = $this->data['product']['title'];
+
+		$this->children = array (
+			'header',
+			'footer'
+		);
+
+		$this->render('products/product', $this->data);
 	}
 }
