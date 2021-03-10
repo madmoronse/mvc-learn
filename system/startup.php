@@ -37,6 +37,7 @@ require_once 'system/router.php';
 require_once 'system/registry.php';
 require_once 'system/db.php';
 require_once 'system/loader.php';
+require_once 'system/request.php';
 require_once 'config.php';
 
 $registry = new Registry;

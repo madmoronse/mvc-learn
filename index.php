@@ -12,6 +12,9 @@ $registry->set('router', $router);
 $loader = new Loader($registry);
 $registry->set('load', $loader);
 
+$request = new Request();
+$registry->set('request', $request);
+
 $db = new DB(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $registry->set('db', $db);
 
