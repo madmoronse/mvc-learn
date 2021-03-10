@@ -1,4 +1,6 @@
-<h1 style="text-align: center;">Подвал!</h1>
+<div class="footer">
+	<h1 style="text-align: center;">Подвал!</h1>
+</div>
 <div class="scroll-up">
 	<svg class="scroll-up__svg" viewBox="-2 -2 52 52">
 		<path
