@@ -6,7 +6,7 @@ Class Controller_Header Extends Controller
 	{
 		$this->data_child = $data_child;
 		$this->load->model('products');
-		$this->data_child['category'] = $this->model_products->getCategory();
+		$this->data_child['category'] = $this->model_products->getCategories();
 		
 		$this->render('common/header', $this->data_child);
 	}

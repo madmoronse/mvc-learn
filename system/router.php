@@ -91,6 +91,6 @@ Class Router {
         }
 
         // Выполняем экшен
-        $controller->$action();
+        $controller->$action($args);
 	}
 }

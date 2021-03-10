@@ -360,6 +360,7 @@ nav.top-right {
   width: 100%;
   margin: 0 auto;
   position: relative;
+  height: 50px;
 }
 .header {
   display: flex;
@@ -553,4 +554,16 @@ nav.top-right {
   background: url('../image/category/6.jpg'), rgba(0,0,0, 0.7);
   background-blend-mode: color;
   background-size: cover;
+}
+/* СТРАНИЦА ПРОДУКТОВ */
+.products {
+  display: flex;
+  justify-content: space-between;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 450px;
+  width: 100%;
 }
