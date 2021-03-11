@@ -29,6 +29,7 @@ Class Controller_Products Extends Controller
 	}
 	public function getProduct($args)
 	{
+		echo $this->request->post['id'];
 		$this->load->model('products');
 		$this->data['product'] = $this->model_products->getProduct($args[0]);
 		$this->data['title'] = $this->data['product']['title'];
@@ -39,5 +40,22 @@ Class Controller_Products Extends Controller
 		);
 
 		$this->render('products/product', $this->data);
+	}
+
+	public function addToCart() 
+	{
+		$json = array();
+
+		$this->data['basket'] = $this->cart->get();
+
+		if ($this->cart->add($this->request->post['id'])) {
+			$this->cart->save();
+			$json['total'] = count($this->cart->get());
+		} else {
+			$json['error'] = "Товар уже в корзине!";
+		}
+		
+		header('Content-type: application/json');
+		echo json_encode($json);
 	}
 }

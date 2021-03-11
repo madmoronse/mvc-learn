@@ -15,6 +15,10 @@ $registry->set('load', $loader);
 $request = new Request();
 $registry->set('request', $request);
 
+$cart = new Cart();
+$registry->set('cart', $cart);
+
+
 $db = new DB(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $registry->set('db', $db);
 

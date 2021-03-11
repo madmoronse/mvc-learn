@@ -47,3 +47,52 @@ scrollUp[0].addEventListener('click', function() {
 		behavior: 'smooth',
 	});
 });
+
+const popup = document.getElementById('popup');
+
+    const popupCloseIcon = document.querySelectorAll('.close-popup');
+    if (popupCloseIcon.length > 0) {
+        for(let index = 0; index < popupCloseIcon.length; index++) {
+            const el = popupCloseIcon[index];
+            el.addEventListener('click', function(e ) {
+                popupClose(el.closest(".popup"));
+                e.preventDefault();
+            }); 
+        }
+    }
+
+       function popupOpen(popup) {
+            popup.classList.add('open');
+            popup.addEventListener("click", function (e) {
+                if (!e.target.closest('.popup_content')) {
+                    popupClose(e.target.closest('.popup'));
+                }
+            });
+        
+    }
+
+    
+
+    function popupClose(popup) {
+        popup.classList.remove('open');
+    }
+
+
+function addToCart(id) {
+	$.ajax({
+		url: '/products/addToCart',
+		type: 'post',
+		data: 'id=' + id,
+		dataType: 'json',
+		success: function(json) {
+			if (json['error']) {
+				$('.popup_text').html(json['error']);
+			} else {
+				$('#cart-total').html(json['total']);
+			}
+
+			popupOpen(popup);
+		}
+	});
+}
+

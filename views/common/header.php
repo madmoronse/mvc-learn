@@ -39,7 +39,7 @@
 		</div>
 		<div class="cart">
 			<img src="../../image/icons/basket_96252.png" width="18" height="18">
-			<span>0</span>
+			<span id="cart-total"><?php echo $countToCart; ?></span>
 		</div>
 	</div>
 </div>
