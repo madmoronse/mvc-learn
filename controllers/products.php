@@ -58,4 +58,22 @@ Class Controller_Products Extends Controller
 		header('Content-type: application/json');
 		echo json_encode($json);
 	}
+
+	public function deleteToCart() 
+	{
+		$json = array();
+
+		$this->data['basket'] = $this->cart->get();
+
+		if ($this->cart->delete($this->request->post['id'])) {
+			$this->cart->save();
+			$json['total'] = count($this->cart->get());
+		} else {
+			$json['error'] = 'Нет в корзине';
+		}
+		
+		header('Content-type: application/json');
+		echo json_encode($json);
+	}
 }
+
