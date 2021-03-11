@@ -42,7 +42,7 @@ Class Controller_Products Extends Controller
 		$this->render('products/product', $this->data);
 	}
 
-	public function addToCart() 
+	public function addToCart()
 	{
 		$json = array();
 
@@ -54,12 +54,12 @@ Class Controller_Products Extends Controller
 		} else {
 			$json['error'] = "Товар уже в корзине!";
 		}
-		
+
 		header('Content-type: application/json');
 		echo json_encode($json);
 	}
 
-	public function deleteToCart() 
+	public function deleteToCart()
 	{
 		$json = array();
 
@@ -71,7 +71,7 @@ Class Controller_Products Extends Controller
 		} else {
 			$json['error'] = 'Нет в корзине';
 		}
-		
+
 		header('Content-type: application/json');
 		echo json_encode($json);
 	}

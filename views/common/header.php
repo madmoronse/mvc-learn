@@ -20,7 +20,7 @@
 <div id="head">
 	<div class="header">
 		<div class="logo">
-			<a href="/"><img src="../../image/logo.png"></a>
+			<a href="/"><img src="/image/logo.png"></a>
 		</div>
 		<div class="menu">
 			<ul>
@@ -38,7 +38,7 @@
 			</ul>
 		</div>
 		<div class="cart">
-			<a onclick="popupCartOpen();"><img src="../../image/icons/basket_96252.png" width="18" height="18"></a>
+			<a onclick="popupCartOpen();"><img src="/image/icons/basket_96252.png" width="18" height="18"></a>
 			<span id="cart-total"><?php echo $countToCart; ?></span>
 		</div>
 	</div>
@@ -53,18 +53,13 @@
         <div class="popup_content">
         	<?php if (isset($products_in_cart)) {?>
 	        	<?php foreach ($products_in_cart as $value): ?>
-		        	<div>
-		        		<img src="/image/products/<?php echo $value['image']; ?>" width="64" height="64">
-		        		<?php echo $value['title']; ?>
-		        		<?php echo $value['price']; ?>
+		        	<div class="cart__content <?php echo 'product-' . $value['id']; ?>">
+		        		<div class="cart__product-image"><img src="/image/products/<?php echo $value['image']; ?>" width="64" height="64"></div>
+		        		<div class="cart__product-name"><?php echo $value['title']; ?></div>
+		        		<div class="cart__product-price"><?php echo $value['price']; ?></div>
 		        		<a onclick="deleteToCart(<?php echo $value['id']; ?>);"><button style="color: black; padding: 5px;">X</button></a>
 		        	</div>
 		        <?php endforeach ?>
-	            <form>
-	            	<input type="text" name="name">
-	            	<input type="text" name="email">
-	            	<input type="text" name="phone">
-	            </form>
         	<?php } else { ?>
         		<div class="popup-text">
         			Корзина пуста!

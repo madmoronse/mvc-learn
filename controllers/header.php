@@ -10,7 +10,7 @@ Class Controller_Header Extends Controller
 
 
 		$this->data_child['countToCart'] = count($this->cart->get());
-		
+
 		$this->getCart();
 
 		$this->render('common/header', $this->data_child);
@@ -20,7 +20,7 @@ Class Controller_Header Extends Controller
 	{
 		$products_id = $this->cart->get();
 		$this->load->model('products');
-		
+
 		foreach ($products_id as $value) {
 			$product = $this->model_products->getProduct($value);
 			foreach ($product as $result) {
@@ -30,7 +30,12 @@ Class Controller_Header Extends Controller
 				'price' => $result['price'],
 				'image' => $result['image']
 				);
-			}	
+			}
 		}
+
+		// $json = $this->data_child['products_in_cart'];
+
+		// header('Content-type: application/json');
+		// echo json_encode($json);
 	}
 }
