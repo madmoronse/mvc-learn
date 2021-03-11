@@ -38,7 +38,7 @@
 			</ul>
 		</div>
 		<div class="cart">
-			<a onclick="popupCartOpen();"><img src="/image/icons/basket_96252.png" width="18" height="18"></a>
+			<a onclick="getCart();"><img src="/image/icons/basket_96252.png" width="18" height="18"></a>
 			<span id="cart-total"><?php echo $countToCart; ?></span>
 		</div>
 	</div>
@@ -51,20 +51,15 @@
 <div id="cart" class="popup">
     <div class="popup_body">
         <div class="popup_content">
-        	<?php if (isset($products_in_cart)) {?>
-	        	<?php foreach ($products_in_cart as $value): ?>
-		        	<div class="cart__content <?php echo 'product-' . $value['id']; ?>">
-		        		<div class="cart__product-image"><img src="/image/products/<?php echo $value['image']; ?>" width="64" height="64"></div>
-		        		<div class="cart__product-name"><?php echo $value['title']; ?></div>
-		        		<div class="cart__product-price"><?php echo $value['price']; ?></div>
-		        		<a onclick="deleteToCart(<?php echo $value['id']; ?>);"><button style="color: black; padding: 5px;">X</button></a>
+		        	<div class="cart__content">
+		        		<div class="cart__product-image"></div>
+		        		<div class="cart__product-name"></div>
+		        		<div class="cart__product-price"></div>
+		        		<div class="cart__action-delete"></div>
 		        	</div>
-		        <?php endforeach ?>
-        	<?php } else { ?>
-        		<div class="popup-text">
+        		<!-- <div class="popup-text">
         			Корзина пуста!
-        		</div>
-        	<?php } ?>
+        		</div> -->
             <div class="popup_close close-popup">Закрыть</div>
         </div>
     </div>

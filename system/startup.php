@@ -39,6 +39,7 @@ require_once 'system/db.php';
 require_once 'system/loader.php';
 require_once 'system/request.php';
 require_once 'system/cart.php';
+require_once 'system/response.php';
 require_once 'config.php';
 
 $registry = new Registry;

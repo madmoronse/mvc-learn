@@ -120,18 +120,20 @@ $.ajax({
 });
 }
 
-// function getCart() {
-// 	$.ajax({
-// 	url: '/header/getCart',
-// 	type: 'post',
-// 	data: '',
-// 	dataType: 'json',
-// 	success: function(json) {
-// 		$('.cart__product-image').html(json['image']);
-// 		$('.cart__product-name').html(json['name']);
-// 		$('.cart__product-price').html(json['price']);
-// 		popupCartOpen();
-// 	}
-// });
-// }
+function getCart() {
+	$.ajax({
+	url: '/header/getCart',
+	type: 'post',
+	dataType: 'json',
+	success: function(json) {
+		$('.cart__content').addClass('product-' + json['success'][0]['id']);
+		$('.cart__product-image').html(json['success'][0]['title']);
+		$('.cart__product-name').html(json['success'][0]['image']);
+		$('.cart__product-price').html(json['success'][0]['price']);
+		$('.cart__action-delete').html('<a onclick="deleteToCart(' + json['success'][0]['id'] + ');"><button style="color: black; padding: 5px;">X</button></a>');
+		popupCartOpen();
+	}
+
+});
+}
 

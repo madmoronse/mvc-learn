@@ -15,6 +15,9 @@ $registry->set('load', $loader);
 $request = new Request();
 $registry->set('request', $request);
 
+$response = new Response();
+$registry->set('response', $response);
+
 $cart = new Cart();
 $registry->set('cart', $cart);
 
