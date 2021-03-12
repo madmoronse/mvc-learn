@@ -55,7 +55,7 @@ if (popupCloseIcon.length > 0) {
     for(let index = 0; index < popupCloseIcon.length; index++) {
         const el = popupCloseIcon[index];
         el.addEventListener('click', function(e ) {
-            popupClose(el.closest(".popup"));
+            popupCartClose(el.closest(".popup"));
             e.preventDefault();
         });
     }
@@ -87,6 +87,7 @@ function popupCartOpen() {
 function popupCartClose(cart) {
     cart.classList.remove('open');
 }
+
 function popupClose(popup) {
     popup.classList.remove('open');
 }
@@ -94,7 +95,7 @@ function popupClose(popup) {
 
 function addToCart(id) {
 $.ajax({
-	url: '/products/addToCart',
+	url: '/basket/addToCart',
 	type: 'post',
 	data: 'id=' + id,
 	dataType: 'json',
@@ -112,14 +113,20 @@ $.ajax({
 
 function deleteToCart(id) {
 $.ajax({
-	url: '/products/deleteToCart',
+	url: '/basket/deleteToCart',
 	type: 'post',
 	data: 'id=' + id,
 	dataType: 'json',
 	success: function(json) {
 		$('.product-' + id).remove();
 		$('#cart-total').html(json['total']);
+
+		if (typeof json['empty'] !== 'undefined') {
+			$('form').remove();
+			$('.popup__content-cart').append('<div class="popup-text">' + json['empty'] + '</div>');
+		}
 	}
+
 });
 }
 
@@ -129,17 +136,28 @@ function getCart() {
 	type: 'post',
 	dataType: 'json',
 	success: function(json) {
-		$('.popup__content-cart').empty();
-		for (var i = 0; i < json['success'].length; i++) {
-			var inf = '';
-			$('.popup__content-cart').append('<div class="cart__content product-' + json['success'][i]['id'] + '"></div>');
-			inf += json['success'][i]['title'];
-			inf += json['success'][i]['image'];
-			inf += json['success'][i]['price'];
-			inf += '<a onclick="deleteToCart(' + json['success'][i]['id'] + ');"><button style="color: black; padding: 5px;">X</button></a> <br>';
-			$('.product-'+ json['success'][i]['id']).html(inf);
-	}
-		$('.popup__content-cart').append('<div class="popup_close close-popup-cart">Закрыть</div>');
+		
+		if (typeof json['error'] === 'undefined') {
+			$('.popup__content-cart').empty();
+			for (var i = 0; i < json['success'].length; i++) {
+				var inf = '';
+				$('.popup__content-cart').append('<div class="cart__content product-' + json['success'][i]['id'] + '"></div>');
+				inf += json['success'][i]['title'];
+				inf += json['success'][i]['image'];
+				inf += json['success'][i]['price'];
+				inf += '<a onclick="deleteToCart(' + json['success'][i]['id'] + ');"><button style="color: black; padding: 5px;">X</button></a> <br>';
+				$('.product-'+ json['success'][i]['id']).html(inf);
+			}
+
+			var form = "";
+			form += '<form>';
+			form += '<input type="text" name="email" placeholder="Введите Email">'
+			form += '</form>';
+			$('.popup__content-cart').append(form);
+		} else {
+			$('.popup__content-cart').append('<div class="popup-text">' + json['error'] + '</div>');
+		}
+		$('.popup__content-cart').append('<div class="popup_close close-popup">Закрыть</div>');
 		popupCartOpen();
 	}
 });
