@@ -18,8 +18,10 @@ Class Controller_Header Extends Controller
 
 	public function getCart()
 	{
+
 		$json = array();
 		$products_id = $this->cart->get();
+
 		$this->load->model('products');
 
 		foreach ($products_id as $value) {
@@ -35,6 +37,8 @@ Class Controller_Header Extends Controller
 		}
 
 		echo json_encode($json, JSON_UNESCAPED_UNICODE);
+		
+		
 
 	}
 }

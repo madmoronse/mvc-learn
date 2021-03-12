@@ -126,14 +126,20 @@ function getCart() {
 	type: 'post',
 	dataType: 'json',
 	success: function(json) {
-		$('.cart__content').addClass('product-' + json['success'][0]['id']);
-		$('.cart__product-image').html(json['success'][0]['title']);
-		$('.cart__product-name').html(json['success'][0]['image']);
-		$('.cart__product-price').html(json['success'][0]['price']);
-		$('.cart__action-delete').html('<a onclick="deleteToCart(' + json['success'][0]['id'] + ');"><button style="color: black; padding: 5px;">X</button></a>');
+		
+		for (var i = 0; i < json['success'].length; i++) {
+			var inf = '';
+			$('.popup__content-cart').append('<div class="cart__content product-' + json['success'][i]['id'] + '"></div>');
+			inf += json['success'][i]['title'];
+			inf += json['success'][i]['image'];
+			inf += json['success'][i]['price'];
+			inf += '<a onclick="deleteToCart(' + json['success'][i]['id'] + ');"><button style="color: black; padding: 5px;">X</button></a> <br>';
+			$('.product-'+ json['success'][i]['id']).html(inf);
+
+		console.log(inf);
+	}
 		popupCartOpen();
 	}
-
 });
 }
 
