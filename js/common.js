@@ -76,7 +76,7 @@ function popupCartOpen() {
     cart.classList.add('open');
     cart.addEventListener("click", function (e) {
         if (!e.target.closest('.popup_content')) {
-            popupClose(e.target.closest('.popup'));
+            popupCartClose(e.target.closest('.popup'));
         }
     });
 
@@ -84,6 +84,9 @@ function popupCartOpen() {
 
 
 
+function popupCartClose(cart) {
+    cart.classList.remove('open');
+}
 function popupClose(popup) {
     popup.classList.remove('open');
 }
@@ -114,7 +117,7 @@ $.ajax({
 	data: 'id=' + id,
 	dataType: 'json',
 	success: function(json) {
-		$('.product-' + id).hide();
+		$('.product-' + id).remove();
 		$('#cart-total').html(json['total']);
 	}
 });
@@ -122,11 +125,11 @@ $.ajax({
 
 function getCart() {
 	$.ajax({
-	url: '/header/getCart',
+	url: '/basket/getCart',
 	type: 'post',
 	dataType: 'json',
 	success: function(json) {
-		
+		$('.popup__content-cart').empty();
 		for (var i = 0; i < json['success'].length; i++) {
 			var inf = '';
 			$('.popup__content-cart').append('<div class="cart__content product-' + json['success'][i]['id'] + '"></div>');
@@ -135,9 +138,8 @@ function getCart() {
 			inf += json['success'][i]['price'];
 			inf += '<a onclick="deleteToCart(' + json['success'][i]['id'] + ');"><button style="color: black; padding: 5px;">X</button></a> <br>';
 			$('.product-'+ json['success'][i]['id']).html(inf);
-
-		console.log(inf);
 	}
+		$('.popup__content-cart').append('<div class="popup_close close-popup-cart">Закрыть</div>');
 		popupCartOpen();
 	}
 });

@@ -1,0 +1,29 @@
+<?php 
+
+Class Controller_Basket Extends Controller
+{
+	public function getCart()
+	{
+
+		$json = array();
+		$products_id = $this->cart->get();
+
+		$this->load->model('products');
+
+		foreach ($products_id as $value) {
+			$product = $this->model_products->getProduct($value);
+			foreach ($product as $result) {
+				$json['success'][] = array(
+				'id' 	=> $result['id'],
+				'title' => $result['title'],
+				'price' => $result['price'],
+				'image' => $result['image']
+				);
+			}
+		}
+
+		if (!empty($json)) {
+			echo json_encode($json, JSON_UNESCAPED_UNICODE);
+		}
+	}
+}

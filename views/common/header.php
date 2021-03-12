@@ -51,16 +51,6 @@
 <div id="cart" class="popup">
     <div class="popup_body">
         <div class="popup_content popup__content-cart">
-		        	<!-- <div class="cart__content">
-		        		<div class="cart__product-image"></div>
-		        		<div class="cart__product-name"></div>
-		        		<div class="cart__product-price"></div>
-		        		<div class="cart__action-delete"></div>
-		        	</div> -->
-        		<!-- <div class="popup-text">
-        			Корзина пуста!
-        		</div> -->
-            <div class="popup_close close-popup">Закрыть</div>
         </div>
     </div>
 </div>
