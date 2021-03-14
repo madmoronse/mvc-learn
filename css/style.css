@@ -6,7 +6,7 @@
   src: url("../fonts/MazzardH-SemiBold.woff");
   src: url("../fonts/MazzardH-SemiBold.woff") format("embedded-opentype"), url("../fonts/MazzardH-SemiBold.woff") format("woff");
   font-weight: 600;
-  font-style: normal; 
+  font-style: normal;
 }
 
 html {
@@ -407,6 +407,7 @@ nav.top-right {
 .cart {
   width: 10%;
   text-align: center;
+  cursor: pointer;
 }
 .cart span {
   font-size: 12px;
@@ -511,7 +512,7 @@ nav.top-right {
   align-items: center;
   color: #fff;
   height: 250px;
-  margin-top: 15px; 
+  margin-top: 15px;
   text-decoration: none;
 }
 .category-it {
@@ -628,5 +629,5 @@ nav.top-right {
 }
 .popup_text{
   font-size: 40px;
-  
+
 }

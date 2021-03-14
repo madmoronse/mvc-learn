@@ -49,13 +49,14 @@ scrollUp[0].addEventListener('click', function() {
 });
 
 const popup = document.getElementById('popup');
+const cart = document.getElementById('cart');
 
 const popupCloseIcon = document.querySelectorAll('.close-popup');
 if (popupCloseIcon.length > 0) {
     for(let index = 0; index < popupCloseIcon.length; index++) {
         const el = popupCloseIcon[index];
         el.addEventListener('click', function(e ) {
-            popupCartClose(el.closest(".popup"));
+            popupClose(el.closest(".popup"));
             e.preventDefault();
         });
     }
@@ -72,7 +73,6 @@ function popupOpen(popup) {
 }
 
 function popupCartOpen() {
-	const cart = document.getElementById('cart');
     cart.classList.add('open');
     cart.addEventListener("click", function (e) {
         if (!e.target.closest('.popup_content')) {
@@ -136,9 +136,9 @@ function getCart() {
 	type: 'post',
 	dataType: 'json',
 	success: function(json) {
-		
+		$('.popup__content-cart').empty();
+
 		if (typeof json['error'] === 'undefined') {
-			$('.popup__content-cart').empty();
 			for (var i = 0; i < json['success'].length; i++) {
 				var inf = '';
 				$('.popup__content-cart').append('<div class="cart__content product-' + json['success'][i]['id'] + '"></div>');
@@ -150,8 +150,11 @@ function getCart() {
 			}
 
 			var form = "";
-			form += '<form>';
-			form += '<input type="text" name="email" placeholder="Введите Email">'
+			form += '<form method="post">';
+			form += '<input type="text" name="name" placeholder="Введите своё имя"><br>'
+			form += '<input type="text" name="email" placeholder="Введите Email"><br>'
+			form += '<input type="number" name="phone" placeholder="Введите номер телефона"><br>'
+			form += '<span onclick="newOrder();" style="color:black;">Отправить</span>'
 			form += '</form>';
 			$('.popup__content-cart').append(form);
 		} else {
@@ -163,3 +166,19 @@ function getCart() {
 });
 }
 
+function newOrder() {
+	$.ajax({
+		url: '/order/newOrder',
+		type: 'post',
+		dataType: 'json',
+		success: function(json) {
+			if (json['success']) {
+				$('.popup__content-cart').append(json['success']);
+				console.log('Отправлено');
+			} else {
+				$('.popup__content-cart').append(json['error']);
+				console.log('Не отправлено');
+			}
+		}
+	});
+}

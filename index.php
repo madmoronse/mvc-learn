@@ -21,6 +21,9 @@ $registry->set('response', $response);
 $cart = new Cart();
 $registry->set('cart', $cart);
 
+$telegram = new Telegram();
+$registry->set('telegram', $telegram);
+
 
 $db = new DB(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 $registry->set('db', $db);
