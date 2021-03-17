@@ -150,11 +150,11 @@ function getCart() {
 			}
 
 			var form = "";
-			form += '<form method="post">';
+			form += '<form>';
 			form += '<input type="text" name="name" placeholder="Введите своё имя"><br>'
 			form += '<input type="text" name="email" placeholder="Введите Email"><br>'
 			form += '<input type="number" name="phone" placeholder="Введите номер телефона"><br>'
-			form += '<span onclick="newOrder();" style="color:black;">Отправить</span>'
+			form += '<button type="submit" onclick="newOrder();" style="color:black;">Отправить</button>'
 			form += '</form>';
 			$('.popup__content-cart').append(form);
 		} else {
@@ -167,18 +167,22 @@ function getCart() {
 }
 
 function newOrder() {
-	$.ajax({
-		url: '/order/newOrder',
-		type: 'post',
-		dataType: 'json',
-		success: function(json) {
-			if (json['success']) {
-				$('.popup__content-cart').append(json['success']);
-				console.log('Отправлено');
-			} else {
-				$('.popup__content-cart').append(json['error']);
-				console.log('Не отправлено');
+	$('form').submit(function(e){
+		e.preventDefault();
+		$.ajax({
+			url: '/order/newOrder',
+			type: 'post',
+			dataType: 'json',
+			data: $(this).serialize(),
+			success: function(json) {
+				if (json['success']) {
+					$('.popup__content-cart').append(json['success']);
+					console.log('Отправлено');
+				} else {
+					$('.popup__content-cart').append(json['error']);
+					console.log('Не отправлено');
+				}
 			}
-		}
+		});
 	});
 }

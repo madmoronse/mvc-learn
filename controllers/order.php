@@ -11,6 +11,11 @@ Class Controller_Order Extends Controller
 			'phone' => $this->request->post['phone']
 		);
 
+		echo($data);
+
+		$this->load->model('customers');
+		$this->model_customers->add($data);
+
 		if ($this->telegram->send($data)) {
 			$json['success'] = 'Всё отлично';
 		} else {
