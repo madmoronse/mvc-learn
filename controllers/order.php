@@ -11,17 +11,19 @@ Class Controller_Order Extends Controller
 			'phone' => $this->request->post['phone']
 		);
 
-		echo($data);
-
 		$this->load->model('customers');
-		$this->model_customers->add($data);
 
-		if ($this->telegram->send($data)) {
-			$json['success'] = 'Всё отлично';
+		if ($this->model_customers->add($data)) {
+			$json['success'] = 'Спасибо! <br> Ваш заказ оформлен. <br> Мы свяжемся с Вами в ближайшее время!';
+			$this->cart->clear();
+			$json['total'] = 0;
 		} else {
-			$json['error'] = 'Всё плохо';
+			$json['error'] = 'Что-то пошло не так... :(';
  		}
 
  		echo json_encode($json, JSON_UNESCAPED_UNICODE);
 	}
 }
+
+
+//$this->telegram->send($data)

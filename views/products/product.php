@@ -3,9 +3,10 @@
 <div class="products">
 	<?php foreach ($product as $value): ?>
 		<div class="product">
-			<?php echo $value['title']; ?><br><br>
-			<?php echo $value['description']; ?><br><br>
-			<?php echo $value['price']; ?><span> руб/кг</span><br><br>
+			<div class="product__image"><img src="/image/products/<?php echo $value['image']; ?>" width="128" height="128"></div>
+			<div class="product__title"><?php echo $value['title']; ?></div>
+			<div class="product__title"><?php echo $value['description']; ?></div>
+			<div class="product__title"><?php echo $value['price']; ?><span> руб/кг</span></div>
 			<a onclick="addToCart(<?php echo $value['id']; ?>);"><button style="color: black; padding: 5px;">Добавить в корзину</button></a>
 		</div>
 	<?php endforeach ?>

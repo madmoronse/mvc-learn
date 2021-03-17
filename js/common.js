@@ -142,10 +142,10 @@ function getCart() {
 			for (var i = 0; i < json['success'].length; i++) {
 				var inf = '';
 				$('.popup__content-cart').append('<div class="cart__content product-' + json['success'][i]['id'] + '"></div>');
-				inf += json['success'][i]['title'];
-				inf += json['success'][i]['image'];
-				inf += json['success'][i]['price'];
-				inf += '<a onclick="deleteToCart(' + json['success'][i]['id'] + ');"><button style="color: black; padding: 5px;">X</button></a> <br>';
+				inf += '<div class="product__image-cart"><img src="/image/products/' + json['success'][i]['image'] +'" width="48" height="48"></div>';
+				inf += '<div class="product__title-cart">' + json['success'][i]['title'] + '</div>';
+				inf += '<div class="product__price-cart">' + json['success'][i]['price'] + '</div>';
+				inf += '<div class="cart__action"><a onclick="deleteToCart(' + json['success'][i]['id'] + ');"><button style="color: black; padding: 5px;">X</button></a></div> <br>';
 				$('.product-'+ json['success'][i]['id']).html(inf);
 			}
 
@@ -175,13 +175,14 @@ function newOrder() {
 			dataType: 'json',
 			data: $(this).serialize(),
 			success: function(json) {
-				if (json['success']) {
-					$('.popup__content-cart').append(json['success']);
-					console.log('Отправлено');
-				} else {
-					$('.popup__content-cart').append(json['error']);
-					console.log('Не отправлено');
-				}
+			$('.popup__content-cart').empty();
+			if (json['error']) {
+				$('.popup__content-cart').html(json['error']);
+			} else {
+				$('.popup__content-cart').html(json['success']);
+				$('#cart-total').html(json['total']);
+			}
+
 			}
 		});
 	});
