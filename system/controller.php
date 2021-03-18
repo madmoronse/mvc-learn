@@ -32,7 +32,7 @@ class Controller
 
 		extract($data);
 
-		include SITE_PATH . 'views/' . $view . '.php.';
+		include SITE_PATH . 'views/' . $view . '.php';
 	}
 
 	private function getChild($child)

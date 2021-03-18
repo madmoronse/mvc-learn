@@ -32,7 +32,10 @@ Class Controller_Products Extends Controller
 		echo $this->request->post['id'];
 		$this->load->model('products');
 		$this->data['product'] = $this->model_products->getProduct($args[0]);
-		$this->data['title'] = $this->data['product']['title'];
+
+		foreach ($this->data['product'] as $value) {
+			$this->data['title'] = $value['title'];
+		}
 
 		$this->children = array (
 			'header',
