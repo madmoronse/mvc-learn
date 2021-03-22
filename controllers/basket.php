@@ -2,6 +2,7 @@
 
 Class Controller_Basket Extends Controller
 {
+	public $totalCart;
 	public function getCart()
 	{
 
@@ -13,16 +14,18 @@ Class Controller_Basket Extends Controller
 		foreach ($products_id as $value) {
 			$product = $this->model_products->getProduct($value);
 			foreach ($product as $result) {
+				$this->totalCart += $result['price'];
 				$json['success'][] = array(
 				'id' 	=> $result['id'],
 				'title' => $result['title'],
 				'price' => $result['price'],
-				'image' => $result['image']
+				'image' => $result['image'],
 				);
 			}
 		}
 
 		if (!empty($json)) {
+			$json['totalSum'] = $this->getSumCart();
 			echo json_encode($json, JSON_UNESCAPED_UNICODE);
 		} else {
 			$json['error'] = "В корзине нет товаров";
@@ -54,6 +57,7 @@ Class Controller_Basket Extends Controller
 		if ($this->cart->delete($this->request->post['id'])) {
 			$this->cart->save();
 			$json['total'] = count($this->cart->get());
+			$json['totalCart'] = $this->getSumCart();
 		} else {
 			$json['error'] = 'Нет в корзине';
 		}
@@ -63,5 +67,20 @@ Class Controller_Basket Extends Controller
 
 		header('Content-type: application/json');
 		echo json_encode($json, JSON_UNESCAPED_UNICODE);
+	}
+
+	protected function getSumCart()
+	{
+		$products_id = $this->cart->get();
+		$this->load->model('products');
+		$this->totalCart = 0;
+		foreach ($products_id as $value) {
+			$product = $this->model_products->getProduct($value);
+			foreach ($product as $result) {
+				$this->totalCart += $result['price'];
+			}
+		}
+
+		return $this->totalCart;
 	}
 }

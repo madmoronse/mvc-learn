@@ -120,9 +120,10 @@ $.ajax({
 	success: function(json) {
 		$('.product-' + id).remove();
 		$('#cart-total').html(json['total']);
-
+		$('.cart__total').html(json['totalCart']);
 		if (typeof json['empty'] !== 'undefined') {
 			$('form').remove();
+			$('.cart__total').remove();
 			$('.popup__content-cart').append('<div class="popup-text">' + json['empty'] + '</div>');
 		}
 	}
@@ -139,6 +140,7 @@ function getCart() {
 		$('.popup__content-cart').empty();
 
 		if (typeof json['error'] === 'undefined') {
+			var sum = '';
 			for (var i = 0; i < json['success'].length; i++) {
 				var inf = '';
 				$('.popup__content-cart').append('<div class="cart__content product-' + json['success'][i]['id'] + '"></div>');
@@ -147,8 +149,10 @@ function getCart() {
 				inf += '<div class="product__price-cart">' + json['success'][i]['price'] + '</div>';
 				inf += '<div class="cart__action"><a onclick="deleteToCart(' + json['success'][i]['id'] + ');"><button style="color: black; padding: 5px;">X</button></a></div> <br>';
 				$('.product-'+ json['success'][i]['id']).html(inf);
-			}
 
+				sum = parseInt(sum) + parseInt(json['success'][i]['price']);
+			}
+			$('.popup__content-cart').append('<div class="cart__total"> Итого: ' + json['totalSum'] + '</div>');
 			var form = "";
 			form += '<form>';
 			form += '<input type="text" name="name" placeholder="Введите своё имя"><br>'
