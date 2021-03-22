@@ -14,7 +14,6 @@ Class Controller_Basket Extends Controller
 		foreach ($products_id as $value) {
 			$product = $this->model_products->getProduct($value);
 			foreach ($product as $result) {
-				$this->totalCart += $result['price'];
 				$json['success'][] = array(
 				'id' 	=> $result['id'],
 				'title' => $result['title'],
@@ -23,6 +22,8 @@ Class Controller_Basket Extends Controller
 				);
 			}
 		}
+
+		$json['totalCart'] = $this->getSumCart();
 
 		if (!empty($json)) {
 			$json['totalSum'] = $this->getSumCart();
