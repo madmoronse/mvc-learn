@@ -1,3 +1,4 @@
+<?php echo "<pre>"; print_r($_COOKIE); echo "</pre>";?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>

@@ -1,10 +1,10 @@
-<?php 
+<?php
 class Cart
 {
 	private $time;
 	private $data = [];
 	private $name = 'CART';
-	
+
 
 	public function __construct()
 	{
@@ -24,7 +24,7 @@ class Cart
 		}
 	}
 
-	public function add($id) 
+	public function add($id)
 	{
 		if (!in_array($id, $this->data)) {
 			$this->data[] = (int) $id;
