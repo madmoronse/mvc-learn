@@ -569,7 +569,7 @@ nav.top-right {
   width: 100%;
   flex-wrap: wrap;
 }
-.product {
+.product__item {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -639,4 +639,37 @@ nav.top-right {
 .popup_text{
   font-size: 40px;
 
+}
+
+/* СТРАНИЦА ОДНОГО ПРОДУКТА */
+#product-content {
+  width: 80%;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+#product-content .product {
+  display: flex;
+  width: 100%;
+}
+.product-left {
+  padding: 20px;
+  width: 45%;
+}
+.product__image img{
+  width: 450px;
+  height: 450px;
+}
+.product-right {
+  display: inline-block;
+  padding: 20px;
+  width: 50%;
+}
+.product__title {
+  margin-bottom: 20px;
+}
+.product__description {
+  margin-bottom: 20px;
+}
+.product__price {
+  margin-bottom: 20px;
 }
